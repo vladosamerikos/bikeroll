@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminTable extends Migration
+class CreateRunnersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin', function (Blueprint $table) {
-            $table->id();
-            $table->string('DNI')->unique();
+        Schema::create('runners', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('dni')->unique();
             $table->string('name');
             $table->string('sex');
             $table->integer('age');
