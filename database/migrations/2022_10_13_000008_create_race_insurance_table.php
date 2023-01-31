@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInsuranceInvoiceTable extends Migration
+class CreateRaceInsuranceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateInsuranceInvoiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('insurance_invoice', function (Blueprint $table) {
+        Schema::create('race_insurance', function (Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('insurance_id');
             $table->foreign('insurance_id')->references('id')->on('insurances');
 
-            $table->unsignedInteger('runner_id');
-            $table->foreign('runner_id')->references('id')->on('runners');
+            $table->unsignedInteger('race_id');
+            $table->foreign('race_id')->references('id')->on('races');
 
-            $table->integer('number_races');
-            $table->float('total');
             $table->timestamps();
         });
     }
@@ -35,6 +33,6 @@ class CreateInsuranceInvoiceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insurance_invoice');
+        Schema::dropIfExists('race_insurance');
     }
 }

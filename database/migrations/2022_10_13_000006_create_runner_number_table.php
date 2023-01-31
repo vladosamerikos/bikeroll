@@ -22,6 +22,10 @@ class CreateRunnerNumberTable extends Migration
             $table->unsignedInteger('race_id');
             $table->foreign('race_id')->references('id')->on('races');
 
+            $table->unsignedInteger('insurance_id');
+            $table->foreign('insurance_id')->references('id')->on('insurance');
+
+
             $table->string('qr_code');
             $table->integer('runner_number');
             $table->time('elapsed_time');
